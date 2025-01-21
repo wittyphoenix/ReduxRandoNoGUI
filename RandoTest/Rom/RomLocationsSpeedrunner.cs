@@ -697,8 +697,9 @@ namespace SuperMetroidRandomizer.Rom
                                            || have.Contains(ItemType.GrappleBeam)
                                            || (have.Contains(ItemType.HiJumpBoots) 
                                                && have.Contains(ItemType.SpeedBooster))
-                                           || CanIbj(have))
-                                           || have.Contains(ItemType.SuperMissile),
+                                           || CanIbj(have)
+                                           || have.Contains(ItemType.SuperMissile))
+                                           ,
                                },
                            new Location
                                {                   
