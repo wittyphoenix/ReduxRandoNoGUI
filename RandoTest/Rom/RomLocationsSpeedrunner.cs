@@ -1269,7 +1269,10 @@ namespace SuperMetroidRandomizer.Rom
                                    ItemID = "x90",
                                    CanAccess =
                                        have =>
-                                       CanAccessOuterMaridia(have),
+                                       CanAccessOuterMaridia(have)
+                                       && (have.Contains(ItemType.GravitySuit)
+                                       || have.Contains(ItemType.VariaSuit)
+                                       && EnergyReserveCount(have) >= 3),
                                },
                            new Location
                                {                            
@@ -1283,7 +1286,10 @@ namespace SuperMetroidRandomizer.Rom
                                    ItemStorageType = ItemStorageType.Chozo,
                                    CanAccess =
                                        have =>
-                                       CanAccessOuterMaridia(have),
+                                       CanAccessOuterMaridia(have)
+                                       && (have.Contains(ItemType.GravitySuit)
+                                       || (have.Contains(ItemType.VariaSuit)
+                                       && EnergyReserveCount(have) >= 3)),
                                },
                            new Location
                                {                           
@@ -1295,7 +1301,10 @@ namespace SuperMetroidRandomizer.Rom
                                    MapAddress = 0x17f46,
                                    CanAccess =
                                        have =>
-                                       CanAccessOuterMaridia(have),
+                                       CanAccessOuterMaridia(have)
+                                       && (have.Contains(ItemType.GravitySuit)
+                                       || (have.Contains(ItemType.VariaSuit)
+                                       && EnergyReserveCount(have) >= 5)),
                                },
                            new Location
                                {                            
