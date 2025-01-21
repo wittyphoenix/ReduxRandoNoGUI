@@ -225,7 +225,8 @@ namespace SuperMetroidRandomizer.Rom
                                    MapAddress = 0x17d00,
                                    CanAccess =
                                        have =>
-                                       CanOpenMissileDoors(have),
+                                       CanDestroyBombWalls(have)
+                                       && CanOpenMissileDoors(have),
                                },
                            new Location
                                {            
