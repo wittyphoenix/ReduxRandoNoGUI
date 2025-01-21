@@ -1271,8 +1271,9 @@ namespace SuperMetroidRandomizer.Rom
                                        have =>
                                        CanAccessOuterMaridia(have)
                                        && (have.Contains(ItemType.GravitySuit)
-                                       || have.Contains(ItemType.VariaSuit)
-                                       && EnergyReserveCount(have) >= 3),
+                                       || (have.Contains(ItemType.VariaSuit)
+                                       && EnergyReserveCount(have) >= 3
+                                       && have.Contains(ItemType.SpaceJump))),
                                },
                            new Location
                                {                            
@@ -1289,7 +1290,8 @@ namespace SuperMetroidRandomizer.Rom
                                        CanAccessOuterMaridia(have)
                                        && (have.Contains(ItemType.GravitySuit)
                                        || (have.Contains(ItemType.VariaSuit)
-                                       && EnergyReserveCount(have) >= 3)),
+                                       && EnergyReserveCount(have) >= 3
+                                       && have.Contains(ItemType.SpaceJump))),
                                },
                            new Location
                                {                           
