@@ -212,8 +212,9 @@ namespace SuperMetroidRandomizer.Rom
                                    ItemStorageType = ItemStorageType.Chozo,
                                    CanAccess =
                                        have =>
-                                       CanPassBombPassages(have) 
-                                       && have.Contains(ItemType.SuperMissile),
+                                       ((CanDestroyBombWalls(have) || have.Contains(ItemType.SpeedBooster))
+                                           && CanOpenMissileDoors(have))
+                                       || CanUsePowerBombs(have),
                                },
                            new Location
                                {            
