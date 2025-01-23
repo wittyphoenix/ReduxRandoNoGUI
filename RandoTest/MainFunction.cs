@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using SuperMetroidRandomizer.IO;
-using SuperMetroidRandomizer.Properties;
 using SuperMetroidRandomizer.Random;
 using SuperMetroidRandomizer.Rom;
 

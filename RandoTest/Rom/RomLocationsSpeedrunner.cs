@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SuperMetroidRandomizer.Random;
-using SuperMetroidRandomizer.Properties;
 
 namespace SuperMetroidRandomizer.Rom
 {

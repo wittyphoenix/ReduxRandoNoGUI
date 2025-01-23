@@ -6,7 +6,6 @@ using System.Linq;
 using System.Resources;
 using System.Threading;
 using SuperMetroidRandomizer.IO;
-using SuperMetroidRandomizer.Properties;
 using SuperMetroidRandomizer.Rom;
 
 namespace SuperMetroidRandomizer.Random
