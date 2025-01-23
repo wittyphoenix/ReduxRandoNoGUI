@@ -14,8 +14,9 @@ namespace SuperMetroidRandomizer
         [STAThread]
         static void Main(string[] args)
         {
+            string settingspath = args[0];
             JsonSerializer serializer = new JsonSerializer();
-            StreamReader file = File.OpenText(@".\Settings\Settings.json");
+            StreamReader file = File.OpenText(settingspath);
             JsonTextReader json = new JsonTextReader(file);
             Settings Settings = serializer.Deserialize<Settings>(json);
 
