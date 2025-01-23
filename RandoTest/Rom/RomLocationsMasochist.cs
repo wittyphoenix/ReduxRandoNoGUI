@@ -1628,19 +1628,6 @@ namespace SuperMetroidRandomizer.Rom
                            ItemType.SpringBall,
                            ItemType.IceBeam,
                            ItemType.XRayScope,
-                           ItemType.ReserveTank,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.PowerBomb,
-                           ItemType.PowerBomb,
-                           ItemType.PowerBomb,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
                        };
         }
     }
