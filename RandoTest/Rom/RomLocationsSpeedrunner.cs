@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SuperMetroidRandomizer.Random;
-using SuperMetroidRandomizer.Properties;
 
 namespace SuperMetroidRandomizer.Rom
 {
@@ -212,8 +211,9 @@ namespace SuperMetroidRandomizer.Rom
                                    ItemStorageType = ItemStorageType.Chozo,
                                    CanAccess =
                                        have =>
-                                       CanPassBombPassages(have) 
-                                       && have.Contains(ItemType.SuperMissile),
+                                       ((CanDestroyBombWalls(have) || have.Contains(ItemType.SpeedBooster))
+                                           && CanOpenMissileDoors(have))
+                                       || CanUsePowerBombs(have),
                                },
                            new Location
                                {            
@@ -225,7 +225,7 @@ namespace SuperMetroidRandomizer.Rom
                                    MapAddress = 0x17d00,
                                    CanAccess =
                                        have =>
-                                       CanPassBombPassages(have) 
+                                       CanDestroyBombWalls(have)
                                        && CanOpenMissileDoors(have),
                                },
                            new Location
@@ -238,10 +238,10 @@ namespace SuperMetroidRandomizer.Rom
                                    MapAddress = 0x17d08,
                                    CanAccess =
                                        have =>
-                                       CanDestroyBombWalls(have) 
+                                       CanDestroyBombWalls(have)
                                        && CanOpenMissileDoors(have) 
                                        && (have.Contains(ItemType.SpeedBooster) 
-                                           || have.Contains(ItemType.SpeedBooster)),
+                                           || have.Contains(ItemType.MorphingBall)),
                                },
                            new Location
                                {           
@@ -257,7 +257,7 @@ namespace SuperMetroidRandomizer.Rom
                                        CanDestroyBombWalls(have) 
                                        && CanOpenMissileDoors(have) 
                                        && (have.Contains(ItemType.SpeedBooster) 
-                                           || have.Contains(ItemType.SpeedBooster)),
+                                           || have.Contains(ItemType.MorphingBall)),
                                },
                            new Location
                                {            
@@ -271,9 +271,8 @@ namespace SuperMetroidRandomizer.Rom
                                    ItemStorageType = ItemStorageType.Hidden,
                                    CanAccess =
                                        have =>
-                                       CanPassBombPassages(have) 
-                                       && CanOpenMissileDoors(have) 
-                                       && have.Contains(ItemType.SpeedBooster),
+                                       (CanPassBombPassages(have) 
+                                       && CanOpenMissileDoors(have)),
                                },
                            new Location
                                {             
@@ -288,7 +287,6 @@ namespace SuperMetroidRandomizer.Rom
                                        have =>
                                        CanDestroyBombWalls(have) 
                                        && CanOpenMissileDoors(have) 
-                                       && have.Contains(ItemType.SpeedBooster)
                                        && have.Contains(ItemType.MorphingBall),
                                },
                            new Location
@@ -301,7 +299,7 @@ namespace SuperMetroidRandomizer.Rom
                                    MapAddress = 0x17d20,
                                    CanAccess =
                                        have =>
-                                       (CanDestroyBombWalls(have) 
+                                       ((CanDestroyBombWalls(have) || have.Contains(ItemType.SpeedBooster))
                                            && CanOpenMissileDoors(have))
                                        || CanUsePowerBombs(have),
                                },
@@ -315,7 +313,7 @@ namespace SuperMetroidRandomizer.Rom
                                    MapAddress = 0x17d28,
                                    CanAccess =
                                        have =>
-                                       (CanDestroyBombWalls(have) 
+                                       ((CanDestroyBombWalls(have) || have.Contains(ItemType.SpeedBooster))
                                            && CanOpenMissileDoors(have))
                                        || CanUsePowerBombs(have),
                                },
@@ -474,8 +472,7 @@ namespace SuperMetroidRandomizer.Rom
                                    CanAccess =
                                        have =>
                                        CanUsePowerBombs(have) 
-                                       && (have.Contains(ItemType.WaveBeam) 
-                                           || have.Contains(ItemType.SuperMissile)),
+                                       && have.Contains(ItemType.WaveBeam),
                                },
                            new Location
                                {           
@@ -701,7 +698,9 @@ namespace SuperMetroidRandomizer.Rom
                                            || have.Contains(ItemType.GrappleBeam)
                                            || (have.Contains(ItemType.HiJumpBoots) 
                                                && have.Contains(ItemType.SpeedBooster))
-                                           || CanIbj(have)),
+                                           || CanIbj(have)
+                                           || have.Contains(ItemType.SuperMissile))
+                                           ,
                                },
                            new Location
                                {                   
@@ -765,7 +764,8 @@ namespace SuperMetroidRandomizer.Rom
                                        && (have.Contains(ItemType.SpaceJump) 
                                            || have.Contains(ItemType.GrappleBeam) 
                                            || have.Contains(ItemType.SpeedBooster) 
-                                           || CanIbj(have)),
+                                           || CanIbj(have)
+                                           || have.Contains(ItemType.SuperMissile)),
                                },
                            new Location
                                {                     
@@ -782,7 +782,8 @@ namespace SuperMetroidRandomizer.Rom
                                        && (have.Contains(ItemType.SpaceJump) 
                                            || have.Contains(ItemType.SpeedBooster)
                                            || CanIbj(have)
-                                           || have.Contains(ItemType.IceBeam)),
+                                           || have.Contains(ItemType.IceBeam)
+                                           || have.Contains(ItemType.SuperMissile)),
                                },
                            new Location
                                {                  
@@ -800,7 +801,8 @@ namespace SuperMetroidRandomizer.Rom
                                        && (have.Contains(ItemType.SpaceJump) 
                                            || have.Contains(ItemType.GrappleBeam)
                                            || have.Contains(ItemType.HiJumpBoots)
-                                           || CanIbj(have)),
+                                           || CanIbj(have)
+                                           || have.Contains(ItemType.SuperMissile)),
                                },
                            new Location
                                {                  
@@ -818,7 +820,8 @@ namespace SuperMetroidRandomizer.Rom
                                        && (have.Contains(ItemType.SpaceJump) 
                                            || have.Contains(ItemType.GrappleBeam)
                                            || have.Contains(ItemType.HiJumpBoots)
-                                           || CanIbj(have)),
+                                           || CanIbj(have)
+                                           || have.Contains(ItemType.SuperMissile)),
                                },
                            new Location
                                {                 
@@ -834,7 +837,8 @@ namespace SuperMetroidRandomizer.Rom
                                        && (have.Contains(ItemType.SpaceJump) 
                                            || have.Contains(ItemType.GrappleBeam)
                                            || have.Contains(ItemType.HiJumpBoots)
-                                           || CanIbj(have)),
+                                           || CanIbj(have)
+                                           || have.Contains(ItemType.SuperMissile)),
                                },
                            new Location
                                {                       
@@ -1179,6 +1183,7 @@ namespace SuperMetroidRandomizer.Rom
                                            || have.Contains(ItemType.GrappleBeam) 
                                            || have.Contains(ItemType.SpaceJump)
                                            || CanIbj(have)
+                                           || have.Contains(ItemType.SuperMissile)
                                            || (have.Contains(ItemType.SpaceJump)
                                                && have.Contains(ItemType.SpringBall))),
                                },
@@ -1250,7 +1255,8 @@ namespace SuperMetroidRandomizer.Rom
                                                    || have.Contains(ItemType.PlasmaBeam))
                                                && (have.Contains(ItemType.SpaceJump)
                                                    || have.Contains(ItemType.HiJumpBoots)
-                                                   || CanIbj(have)))),
+                                                   || CanIbj(have)
+                                                   || have.Contains(ItemType.SuperMissile)))),
                                },
                            new Location
                                {                             
@@ -1263,7 +1269,11 @@ namespace SuperMetroidRandomizer.Rom
                                    ItemID = "x90",
                                    CanAccess =
                                        have =>
-                                       CanAccessOuterMaridia(have),
+                                       CanAccessOuterMaridia(have)
+                                       && (have.Contains(ItemType.GravitySuit)
+                                       || (have.Contains(ItemType.VariaSuit)
+                                       && EnergyReserveCount(have) >= 3
+                                       && have.Contains(ItemType.SpaceJump))),
                                },
                            new Location
                                {                            
@@ -1277,7 +1287,11 @@ namespace SuperMetroidRandomizer.Rom
                                    ItemStorageType = ItemStorageType.Chozo,
                                    CanAccess =
                                        have =>
-                                       CanAccessOuterMaridia(have),
+                                       CanAccessOuterMaridia(have)
+                                       && (have.Contains(ItemType.GravitySuit)
+                                       || (have.Contains(ItemType.VariaSuit)
+                                       && EnergyReserveCount(have) >= 3
+                                       && have.Contains(ItemType.SpaceJump))),
                                },
                            new Location
                                {                           
@@ -1289,7 +1303,10 @@ namespace SuperMetroidRandomizer.Rom
                                    MapAddress = 0x17f46,
                                    CanAccess =
                                        have =>
-                                       CanAccessOuterMaridia(have),
+                                       CanAccessOuterMaridia(have)
+                                       && (have.Contains(ItemType.GravitySuit)
+                                       || (have.Contains(ItemType.VariaSuit)
+                                       && EnergyReserveCount(have) >= 5)),
                                },
                            new Location
                                {                            
@@ -1345,8 +1362,7 @@ namespace SuperMetroidRandomizer.Rom
                                        have =>
                                        CanAccessOuterMaridia(have)
                                        && have.Contains(ItemType.GravitySuit)
-                                       && (have.Contains(ItemType.IceBeam) 
-                                           || have.Contains(ItemType.GrappleBeam)),
+                                       && (have.Contains(ItemType.GrappleBeam)),
                                },
                            new Location
                                {                            
@@ -1407,25 +1423,14 @@ namespace SuperMetroidRandomizer.Rom
         private bool CanDefeatDraygon(List<ItemType> have)
         {
             return CanDefeatBotwoon(have)
-                && (have.Contains(ItemType.GravitySuit)
-                    || ((have.Contains(ItemType.GrappleBeam)
-                            || CanCrystalFlash(have))
-                        && (have.Contains(ItemType.SpringBall)
-                            || have.Contains(ItemType.XRayScope))));
-        }
-
-        private bool CanCrystalFlash(List<ItemType> have)
-        {
-            return have.Count(x => x == ItemType.Missile) >= 2
-                && have.Count(x => x == ItemType.SuperMissile) >= 2 
-                && have.Count(x => x == ItemType.PowerBomb) >= 3;
+                && have.Contains(ItemType.GravitySuit);
         }
 
         private bool CanDefeatBotwoon(List<ItemType> have)
         {
             return CanAccessInnerMaridia(have)
-                && (have.Contains(ItemType.IceBeam) 
-                    || have.Contains(ItemType.SpeedBooster));
+                && (have.Contains(ItemType.SpeedBooster))
+                && (have.Contains(ItemType.GravitySuit));
         }
 
         private bool CanAccessInnerMaridia(List<ItemType> have)
@@ -1435,7 +1440,9 @@ namespace SuperMetroidRandomizer.Rom
                 && (have.Contains(ItemType.GravitySuit)
                     || (have.Contains(ItemType.HiJumpBoots)
                         && have.Contains(ItemType.IceBeam)
-                        && have.Contains(ItemType.GrappleBeam)));
+                        && have.Contains(ItemType.GrappleBeam))
+                    || have.Contains(ItemType.SpaceJump)
+                    || have.Contains(ItemType.SuperMissile));
         }
 
         private bool CanAccessOuterMaridia(List<ItemType> have)
@@ -1444,15 +1451,16 @@ namespace SuperMetroidRandomizer.Rom
                 && have.Contains(ItemType.PowerBomb)
                 && (have.Contains(ItemType.GravitySuit) 
                     || (have.Contains(ItemType.HiJumpBoots)
-                        && have.Contains(ItemType.IceBeam)));
+                        && have.Contains(ItemType.IceBeam))
+                    || have.Contains(ItemType.SpaceJump)
+                    || have.Contains(ItemType.SuperMissile));
         }
 
         private bool CanAccessLowerNorfair(List<ItemType> have)
         {
             return CanAccessHeatedNorfair(have)
                 && have.Contains(ItemType.PowerBomb)
-                && ((have.Contains(ItemType.VariaSuit)
-                        && have.Contains(ItemType.HiJumpBoots))
+                && ((have.Contains(ItemType.VariaSuit))
                     || have.Contains(ItemType.GravitySuit));
         }
 
@@ -1472,7 +1480,8 @@ namespace SuperMetroidRandomizer.Rom
             return CanAccessRedBrinstar(have)
                 && (have.Contains(ItemType.SpaceJump) 
                     || have.Contains(ItemType.HiJumpBoots) 
-                    || CanIbj(have))
+                    || CanIbj(have)
+                    || have.Contains(ItemType.SuperMissile))
                 && (have.Contains(ItemType.VariaSuit) 
                     || have.Contains(ItemType.GravitySuit) 
                     || EnergyReserveCount(have) >= 3);
@@ -1494,7 +1503,7 @@ namespace SuperMetroidRandomizer.Rom
         private bool CanAccessRedBrinstar(List<ItemType> have)
         {
             return have.Contains(ItemType.SuperMissile)
-                && ((CanDestroyBombWalls(have) 
+                && (((CanDestroyBombWalls(have) || have.Contains(ItemType.SpeedBooster))
                         && have.Contains(ItemType.MorphingBall)) 
                     || (CanUsePowerBombs(have)));
         }
@@ -1639,37 +1648,6 @@ namespace SuperMetroidRandomizer.Rom
                            ItemType.IceBeam,
                            ItemType.ScrewAttack,
                            ItemType.XRayScope,
-                           ItemType.ReserveTank,
-                           ItemType.ReserveTank,
-                           ItemType.ReserveTank,
-                           ItemType.ReserveTank,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.PowerBomb,
-                           ItemType.PowerBomb,
-                           ItemType.PowerBomb,
-                           ItemType.PowerBomb,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
                        };
         }
     }

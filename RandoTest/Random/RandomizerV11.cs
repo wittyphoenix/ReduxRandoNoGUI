@@ -6,8 +6,8 @@ using System.Linq;
 using System.Resources;
 using System.Threading;
 using SuperMetroidRandomizer.IO;
-using SuperMetroidRandomizer.Properties;
 using SuperMetroidRandomizer.Rom;
+using SuperMetroidReduxRandomizer.Settings;
 
 namespace SuperMetroidRandomizer.Random
 {
@@ -37,16 +37,20 @@ namespace SuperMetroidRandomizer.Random
         private string[] LastDupeEsc = { "\x0A", "\x13", "\x25", "\x3E", "\x8D", "\x91" };
         private long[] DupeAddress = { 0x17cd6, 0x17d18, 0x17d90, 0x17e3a, 0x17f26, 0x17f3e};
         private byte[] RomImage;
+        private ItemsCount itemscount;
+        private Settings settings;
         
 
 
-        public RandomizerV11(int seed, IRomLocations romLocations, RandomizerLog log, string inputfile)
+        public RandomizerV11(int seed, IRomLocations romLocations, RandomizerLog log, Settings settings)
         {
             random = new SeedRandom(seed);
             this.romLocations = romLocations;
             this.seed = seed;
             this.log = log;
-            this.inputfile = inputfile;
+            this.inputfile = settings.InputFile;
+            this.itemscount = settings.ItemsCount;
+            this.settings = settings;
         }
         
         public string CreateRom(string filename, bool spoilerOnly = false)
@@ -72,7 +76,7 @@ namespace SuperMetroidRandomizer.Random
         private void WriteRom(string filename)
         {
             string usedFilename = FileName.Fix(filename, string.Format(romLocations.SeedFileString, seed));
-            var hideLocations = !(romLocations is RomLocationsCasual);
+            var hideLocations = settings.HiddenItems;
             try
             {
                 RomImage = File.ReadAllBytes(inputfile);
@@ -299,6 +303,28 @@ namespace SuperMetroidRandomizer.Random
             romLocations.ResetLocations();
             haveItems = new List<ItemType>();
             itemPool = romLocations.GetItemPool(random);
+
+            for (int i = 0; i < itemscount.Missiles/5; i++)
+            {
+                itemPool.Add(ItemType.Missile);
+            }
+            for (int i = 0; i < itemscount.SuperMissiles / 5; i++)
+            {
+                itemPool.Add(ItemType.SuperMissile);
+            }
+            for (int i = 0; i < itemscount.PowerBombs / 5; i++)
+            {
+                itemPool.Add(ItemType.PowerBomb);
+            }
+            for (int i = 0; i < itemscount.EnergyTanks; i++)
+            {
+                itemPool.Add(ItemType.EnergyTank);
+            }
+            for (int i = 0; i < itemscount.ReserveTanks; i++)
+            {
+                itemPool.Add(ItemType.ReserveTank);
+            }
+
             var unavailableLocations = romLocations.GetUnavailableLocations(itemPool);
 
             for (int i = itemPool.Count; i < 100 - unavailableLocations.Count; i++)
