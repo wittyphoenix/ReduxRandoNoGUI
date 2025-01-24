@@ -1,0 +1,15 @@
+{
+    "Seed": "",
+    "InputFile": "C:\\Users\\sjmcg\\OneDrive\\Documents\\Metroid\\Randomizer\\Input\\Dedux Rando Compatible.sfc",
+    "OutputFile": "Y:\\snes\\Super Metroid Dedux Rando.sfc",
+    "SpoilerLog": true,
+    "Difficulty": "Speedrunner",
+    "HiddenItems": true,
+    "ItemsCount": {
+        "Missiles": 50,
+        "SuperMissiles": 30,
+        "PowerBombs": 20,
+        "EnergyTanks": 7,
+        "ReserveTanks": 4
+    }
+}

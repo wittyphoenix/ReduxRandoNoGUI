@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SuperMetroidRandomizer.Random;
-using SuperMetroidRandomizer.Properties;
 
 namespace SuperMetroidRandomizer.Rom
 {
@@ -1649,37 +1648,6 @@ namespace SuperMetroidRandomizer.Rom
                            ItemType.IceBeam,
                            ItemType.ScrewAttack,
                            ItemType.XRayScope,
-                           ItemType.ReserveTank,
-                           ItemType.ReserveTank,
-                           ItemType.ReserveTank,
-                           ItemType.ReserveTank,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.Missile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.SuperMissile,
-                           ItemType.PowerBomb,
-                           ItemType.PowerBomb,
-                           ItemType.PowerBomb,
-                           ItemType.PowerBomb,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
-                           ItemType.EnergyTank,
                        };
         }
     }

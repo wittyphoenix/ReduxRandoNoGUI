@@ -2,7 +2,7 @@
   "profiles": {
     "http": {
       "commandName": "Project",
-      "commandLineArgs": "\"Speedrunner\" \"C:\\Users\\sjmcg\\OneDrive\\Documents\\Metroid\\Randomizer\\Input\\Dedux Rando Compatible.sfc\" \"Y:\\snes\\Super Metroid Dedux Rando.sfc\"",
+      "commandLineArgs": "\".\\settings\\settings.json\"",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

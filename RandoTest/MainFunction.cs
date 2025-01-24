@@ -1,19 +1,28 @@
 ﻿using System;
 using System.IO;
 using SuperMetroidRandomizer.IO;
-using SuperMetroidRandomizer.Properties;
 using SuperMetroidRandomizer.Random;
 using SuperMetroidRandomizer.Rom;
+using SuperMetroidReduxRandomizer.Settings;
 
 namespace SuperMetroidRandomizer
 {
     public class MainFunction
     {
 
-        public void CreateRom(string difficultytext, string inputfile, string outputfile)
+        public void CreateRom(Settings Settings)
         {
-            RandomizerDifficulty difficulty = GetDifficultyFromString(difficultytext);
-            string seedV11 = SetSeedBasedOnDifficulty(difficulty);
+            RandomizerDifficulty difficulty = GetDifficultyFromString(Settings.Difficulty);
+            string seedV11 = "";
+
+            if (string.IsNullOrWhiteSpace(Settings.seed))
+            {
+                seedV11 = SetSeedBasedOnDifficulty(difficulty);
+            }
+            else
+            {
+                seedV11 = Settings.seed;
+            }
 
             int parsedSeed;
             if (!int.TryParse(seedV11, out parsedSeed))
@@ -25,15 +34,17 @@ namespace SuperMetroidRandomizer
                 var romLocations = RomLocationsFactory.GetRomLocations(difficulty);
                 RandomizerLog log = null;
 
-                
-                
-                log = new RandomizerLog(string.Format(romLocations.SeedFileString, parsedSeed));
+
+                if (Settings.SpoilerLog == true)
+                {
+                    log = new RandomizerLog(string.Format(romLocations.SeedFileString, parsedSeed));
+                }
                 
 
                 seedV11 = string.Format(romLocations.SeedFileString, parsedSeed);
-                var randomizerV11 = new RandomizerV11(parsedSeed, romLocations, log, inputfile);
-                randomizerV11.CreateRom(outputfile);
-                string SaveFile = outputfile.Substring(0, outputfile.Length - 3) + "srm";
+                var randomizerV11 = new RandomizerV11(parsedSeed, romLocations, log, Settings);
+                randomizerV11.CreateRom(Settings.OutputFile);
+                string SaveFile = Settings.OutputFile.Substring(0, Settings.OutputFile.Length - 3) + "srm";
                 if (File.Exists(SaveFile))
                 {
                     File.Delete(SaveFile);
