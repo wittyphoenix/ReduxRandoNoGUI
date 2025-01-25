@@ -5,10 +5,10 @@
     "SpoilerLog": true,
     "Difficulty": "Speedrunner",
     "HiddenItems": true,
-    "ItemsCount": {
-        "Missiles": 50,
-        "SuperMissiles": 30,
-        "PowerBombs": 20,
+    "Items": {
+        "Missiles": 230,
+        "SuperMissiles": 50,
+        "PowerBombs": 50,
         "EnergyTanks": 7,
         "ReserveTanks": 4
     }

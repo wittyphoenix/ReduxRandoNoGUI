@@ -1,6 +1,6 @@
 ﻿namespace SuperMetroidReduxRandomizer.Settings
 {
-    public class ItemsCount
+    public class Items
     {
         public int Missiles { get; set; }
         public int SuperMissiles { get; set; }
@@ -17,6 +17,6 @@
         public bool SpoilerLog { get; set; }
         public string Difficulty { get; set; }
         public bool HiddenItems { get; set; }
-        public ItemsCount ItemsCount { get; set; }
+        public Items Items { get; set; }
     }
 }

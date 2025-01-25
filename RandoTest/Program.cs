@@ -36,19 +36,18 @@ namespace SuperMetroidRandomizer
             try
             {
                 Validation.ValidateSeed(Settings.seed);
-                Validation.ValidateFilePath(Settings.InputFile);
-                Validation.ValidateFilePath(Settings.OutputFile);
+                Validation.ValidateFileExists(Settings.InputFile);
                 Validation.ValidateDifficulty(Settings.Difficulty);
-                Validation.ValidateItems(Settings.ItemsCount.Missiles, Settings.ItemsCount.SuperMissiles,Settings.ItemsCount.PowerBombs);
-                Validation.ValidatePositive(Settings.ItemsCount.Missiles);
-                Validation.ValidatePositive(Settings.ItemsCount.SuperMissiles);
-                Validation.ValidatePositive(Settings.ItemsCount.PowerBombs);
-                Validation.ValidatePositive(Settings.ItemsCount.EnergyTanks);
-                Validation.ValidatePositive(Settings.ItemsCount.ReserveTanks);
-                Validation.ValidateEnergy(Settings.ItemsCount.EnergyTanks);
-                Validation.ValidateReserve(Settings.ItemsCount.ReserveTanks);
-                Validation.ValidateMinimum(Settings.ItemsCount.SuperMissiles);
-                Validation.ValidateMinimum(Settings.ItemsCount.PowerBombs);
+                Validation.ValidateItems(Settings.Items.Missiles, Settings.Items.SuperMissiles,Settings.Items.PowerBombs);
+                Validation.ValidatePositive(Settings.Items.Missiles);
+                Validation.ValidatePositive(Settings.Items.SuperMissiles);
+                Validation.ValidatePositive(Settings.Items.PowerBombs);
+                Validation.ValidatePositive(Settings.Items.EnergyTanks);
+                Validation.ValidatePositive(Settings.Items.ReserveTanks);
+                Validation.ValidateEnergy(Settings.Items.EnergyTanks);
+                Validation.ValidateReserve(Settings.Items.ReserveTanks);
+                Validation.ValidateMinimum(Settings.Items.SuperMissiles);
+                Validation.ValidateMinimum(Settings.Items.PowerBombs);
             }
             catch (Exception ex)
             {

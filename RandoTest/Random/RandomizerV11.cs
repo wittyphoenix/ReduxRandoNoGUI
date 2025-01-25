@@ -37,7 +37,7 @@ namespace SuperMetroidRandomizer.Random
         private string[] LastDupeEsc = { "\x0A", "\x13", "\x25", "\x3E", "\x8D", "\x91" };
         private long[] DupeAddress = { 0x17cd6, 0x17d18, 0x17d90, 0x17e3a, 0x17f26, 0x17f3e};
         private byte[] RomImage;
-        private ItemsCount itemscount;
+        private Items items;
         private Settings settings;
         
 
@@ -49,7 +49,7 @@ namespace SuperMetroidRandomizer.Random
             this.seed = seed;
             this.log = log;
             this.inputfile = settings.InputFile;
-            this.itemscount = settings.ItemsCount;
+            this.items = settings.Items;
             this.settings = settings;
         }
         
@@ -304,23 +304,23 @@ namespace SuperMetroidRandomizer.Random
             haveItems = new List<ItemType>();
             itemPool = romLocations.GetItemPool(random);
 
-            for (int i = 0; i < itemscount.Missiles/5; i++)
+            for (int i = 0; i < items.Missiles/5; i++)
             {
                 itemPool.Add(ItemType.Missile);
             }
-            for (int i = 0; i < itemscount.SuperMissiles / 5; i++)
+            for (int i = 0; i < items.SuperMissiles / 5; i++)
             {
                 itemPool.Add(ItemType.SuperMissile);
             }
-            for (int i = 0; i < itemscount.PowerBombs / 5; i++)
+            for (int i = 0; i < items.PowerBombs / 5; i++)
             {
                 itemPool.Add(ItemType.PowerBomb);
             }
-            for (int i = 0; i < itemscount.EnergyTanks; i++)
+            for (int i = 0; i < items.EnergyTanks; i++)
             {
                 itemPool.Add(ItemType.EnergyTank);
             }
-            for (int i = 0; i < itemscount.ReserveTanks; i++)
+            for (int i = 0; i < items.ReserveTanks; i++)
             {
                 itemPool.Add(ItemType.ReserveTank);
             }

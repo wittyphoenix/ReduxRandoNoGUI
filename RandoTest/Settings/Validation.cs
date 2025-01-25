@@ -17,7 +17,7 @@ namespace SuperMetroidReduxRandomizer.Settings
             }
         }
 
-        public static void ValidateFilePath(string value)
+        public static void ValidateFileExists(string value)
         {
             try 
             {
