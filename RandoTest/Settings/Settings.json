@@ -1,7 +1,7 @@
 {
     "Seed": "",
-    "InputFile": "C:\\Users\\sjmcg\\OneDrive\\Documents\\Metroid\\Randomizer\\Input\\Dedux Rando Compatible.sfc",
-    "OutputFile": "Y:\\snes\\Super Metroid Dedux Rando.sfc",
+    "InputFile": ".\\in\\Dedux Rando Compatible.sfc",
+    "OutputFile": ".\\Out\\Super Metroid Dedux Rando.sfc",
     "SpoilerLog": true,
     "Difficulty": "Speedrunner",
     "HiddenItems": true,
