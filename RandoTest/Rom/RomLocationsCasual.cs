@@ -1566,21 +1566,7 @@ namespace SuperMetroidRandomizer.Rom
             return new List<ItemType>
                        {
                            ItemType.MorphingBall,
-                           ItemType.Bomb,
                            ItemType.ChargeBeam,
-                           ItemType.Spazer,
-                           ItemType.VariaSuit,
-                           ItemType.HiJumpBoots,
-                           ItemType.SpeedBooster,
-                           ItemType.WaveBeam,
-                           ItemType.GrappleBeam,
-                           ItemType.GravitySuit,
-                           ItemType.SpaceJump,
-                           ItemType.SpringBall,
-                           ItemType.PlasmaBeam,
-                           ItemType.IceBeam,
-                           ItemType.ScrewAttack,
-                           ItemType.XRayScope,
                        };
         }
     }
