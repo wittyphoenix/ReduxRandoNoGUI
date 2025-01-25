@@ -167,6 +167,13 @@ namespace SuperMetroidRandomizer.Random
                 rom.Seek(0x5e651, SeekOrigin.Begin);
                 rom.Write(useditemsarray, 0, 1);
 
+                
+                if(settings.Difficulty == "Casual")
+                {
+                    rom.Seek(0x001E20, SeekOrigin.Begin);
+                    rom.Write(StringToByteArray("\x30\x30"), 0, 1);
+                }
+
                 int cnt = 0;
                 foreach (var dupe in FirstDupe)
                 {
