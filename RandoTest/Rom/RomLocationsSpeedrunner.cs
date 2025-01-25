@@ -1421,15 +1421,12 @@ namespace SuperMetroidRandomizer.Rom
 
         private bool CanDefeatDraygon(List<ItemType> have)
         {
-            return CanDefeatBotwoon(have)
-                && have.Contains(ItemType.GravitySuit);
+            return CanDefeatBotwoon(have);
         }
 
         private bool CanDefeatBotwoon(List<ItemType> have)
         {
-            return CanAccessInnerMaridia(have)
-                && (have.Contains(ItemType.SpeedBooster))
-                && (have.Contains(ItemType.GravitySuit));
+            return CanAccessInnerMaridia(have);
         }
 
         private bool CanAccessInnerMaridia(List<ItemType> have)
@@ -1460,7 +1457,10 @@ namespace SuperMetroidRandomizer.Rom
             return CanAccessHeatedNorfair(have)
                 && have.Contains(ItemType.PowerBomb)
                 && ((have.Contains(ItemType.VariaSuit))
-                    || have.Contains(ItemType.GravitySuit));
+                    || have.Contains(ItemType.GravitySuit)
+                    || (EnergyReserveCount(have) >= 7
+                        && have.Contains(ItemType.ScrewAttack)
+                        && have.Contains(ItemType.SpaceJump)));
         }
 
         private bool CanAccessCrocomire(List<ItemType> have)
