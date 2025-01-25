@@ -170,8 +170,8 @@ namespace SuperMetroidRandomizer.Random
                 
                 if(settings.Difficulty == "Casual")
                 {
-                    rom.Seek(0x001E20, SeekOrigin.Begin);
-                    rom.Write(StringToByteArray("\x03\x30"), 0, 2);
+                    rom.Seek(0x001E21, SeekOrigin.Begin);
+                    rom.Write(StringToByteArray("\x30\x03"), 0, 2);
                 }
 
                 int cnt = 0;
