@@ -1,6 +1,6 @@
 {
     "Seed": "",
-    "InputFile": ".\\in\\Dedux Rando Compatible.sfc",
+    "InputFile": ".\\InputRom\\Dedux Rando Compatible.sfc",
     "OutputFile": ".\\Out\\Super Metroid Dedux Rando.sfc",
     "SpoilerLog": true,
     "Difficulty": "Speedrunner",
