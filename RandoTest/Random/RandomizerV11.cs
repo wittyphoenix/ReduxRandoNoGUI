@@ -324,6 +324,62 @@ namespace SuperMetroidRandomizer.Random
             {
                 itemPool.Add(ItemType.ReserveTank);
             }
+            if(items.Bomb == true)
+            {
+                itemPool.Add(ItemType.Bomb);
+            }
+            if (items.Spazer == true)
+            {
+                itemPool.Add(ItemType.Spazer);
+            }
+            if (items.VariaSuit == true)
+            {
+                itemPool.Add(ItemType.VariaSuit);
+            }
+            if (items.HiJumpBoots == true)
+            {
+                itemPool.Add(ItemType.HiJumpBoots);
+            }
+            if (items.SpeedBooster == true)
+            {
+                itemPool.Add(ItemType.SpeedBooster);
+            }
+            if (items.WaveBeam == true)
+            {
+                itemPool.Add(ItemType.WaveBeam);
+            }
+            if (items.GrappleBeam == true)
+            {
+                itemPool.Add(ItemType.GrappleBeam);
+            }
+            if (items.GravitySuit == true)
+            {
+                itemPool.Add(ItemType.GravitySuit);
+            }
+            if (items.SpaceJump == true)
+            {
+                itemPool.Add(ItemType.SpaceJump);
+            }
+            if (items.SpringBall == true)
+            {
+                itemPool.Add(ItemType.SpringBall);
+            }
+            if (items.PlasmaBeam == true)
+            {
+                itemPool.Add(ItemType.PlasmaBeam);
+            }
+            if (items.IceBeam == true)
+            {
+                itemPool.Add(ItemType.IceBeam);
+            }
+            if (items.XRayScope == true)
+            {
+                itemPool.Add(ItemType.XRayScope);
+            }
+            if (items.ScrewAttack== true)
+            {
+                itemPool.Add(ItemType.ScrewAttack);
+            }
 
             var unavailableLocations = romLocations.GetUnavailableLocations(itemPool);
 

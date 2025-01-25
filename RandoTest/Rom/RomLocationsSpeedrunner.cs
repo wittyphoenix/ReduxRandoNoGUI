@@ -1565,8 +1565,16 @@ namespace SuperMetroidRandomizer.Rom
         public List<Location> GetAvailableLocations(List<ItemType> haveItems)
         {
             var retVal = (from Location location in Locations where (location.Item == null) && location.CanAccess(haveItems) select location).ToList();
-            var currentWeight = (from item in retVal orderby item.Weight descending select item.Weight).First() + 1;
-
+            var currentWeight = 0;
+            try
+            {
+                currentWeight = (from item in retVal orderby item.Weight descending select item.Weight).First() + 1;
+            }
+            catch
+            {
+                Console.Error.WriteLine("An error occurred: There are not enough available item locations to place every item. Try reducing item counts or enabling more key items.");
+                Environment.Exit(1);
+            }
             foreach (var item in retVal.Where(item => item.Weight == 0))
             {
                 item.Weight = currentWeight;
@@ -1630,24 +1638,7 @@ namespace SuperMetroidRandomizer.Rom
             return new List<ItemType>
                        {
                            ItemType.MorphingBall,
-                           ItemType.Bomb,
                            ItemType.ChargeBeam,
-                           ItemType.ChargeBeam,
-                           ItemType.ChargeBeam,
-                           ItemType.ChargeBeam,
-                           ItemType.Spazer,
-                           ItemType.VariaSuit,
-                           ItemType.HiJumpBoots,
-                           ItemType.SpeedBooster,
-                           ItemType.WaveBeam,
-                           ItemType.GrappleBeam,
-                           ItemType.GravitySuit,
-                           ItemType.SpaceJump,
-                           ItemType.SpringBall,
-                           ItemType.PlasmaBeam,
-                           ItemType.IceBeam,
-                           ItemType.ScrewAttack,
-                           ItemType.XRayScope,
                        };
         }
     }

@@ -6,10 +6,24 @@
     "Difficulty": "Speedrunner",
     "HiddenItems": true,
     "Items": {
-        "Missiles": 230,
-        "SuperMissiles": 50,
-        "PowerBombs": 50,
+        "Missiles": 50,
+        "SuperMissiles": 30,
+        "PowerBombs": 20,
         "EnergyTanks": 7,
-        "ReserveTanks": 4
+        "ReserveTanks": 4,
+        "Bomb": true,
+        "Spazer": true,
+        "VariaSuit": true,
+        "HiJumpBoots": true,
+        "SpeedBooster": true,
+        "WaveBeam": true,
+        "GrappleBeam": true,
+        "GravitySuit": true,
+        "SpaceJump": true,
+        "SpringBall": true,
+        "PlasmaBeam": true,
+        "IceBeam": true,
+        "XRayScope": true,
+        "ScrewAttack": true
     }
 }
