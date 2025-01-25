@@ -31,9 +31,9 @@ namespace SuperMetroidReduxRandomizer.Settings
 
         public static void ValidateDifficulty(string value)
         {
-            if(value != "Casual" && value != "Speedrunner" && value != "Masochist")
+            if(value != "Casual" && value != "Speedrunner")
             {
-                throw new ValidationException($"Difficulty must be either 'Casual', 'Speedrunner', or 'Masochist'.");
+                throw new ValidationException($"Difficulty must be either 'Casual' or 'Speedrunner'.");
             }
         }
         public static void ValidateItems(int missiles, int bombs, int supers)
