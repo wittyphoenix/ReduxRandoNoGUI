@@ -1249,6 +1249,7 @@ namespace SuperMetroidRandomizer.Rom
                                    CanAccess =
                                        have =>
                                        CanDefeatDraygon(have)
+                                       && have.Contains(ItemType.GravitySuit)
                                        && (have.Contains(ItemType.SpeedBooster)
                                            || ((have.Contains(ItemType.ScrewAttack)
                                                    || have.Contains(ItemType.PlasmaBeam))
