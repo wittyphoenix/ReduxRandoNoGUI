@@ -57,6 +57,14 @@ namespace SuperMetroidReduxRandomizer.Settings
             }
         }
 
+        public static void ValidateMinimum(int value)
+        {
+            if (value < 5)
+            {
+                throw new ValidationException($"Must have at least 5 Super Missiles and Power Bombs.");
+            }
+        }
+
         public static void ValidateEnergy(int value)
         {
             if (value > 14)

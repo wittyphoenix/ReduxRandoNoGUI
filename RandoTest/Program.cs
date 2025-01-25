@@ -47,6 +47,8 @@ namespace SuperMetroidRandomizer
                 Validation.ValidatePositive(Settings.ItemsCount.ReserveTanks);
                 Validation.ValidateEnergy(Settings.ItemsCount.EnergyTanks);
                 Validation.ValidateReserve(Settings.ItemsCount.ReserveTanks);
+                Validation.ValidateMinimum(Settings.ItemsCount.SuperMissiles);
+                Validation.ValidateMinimum(Settings.ItemsCount.PowerBombs);
             }
             catch (Exception ex)
             {
