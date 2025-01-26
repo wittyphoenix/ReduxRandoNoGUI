@@ -36,14 +36,33 @@ namespace SuperMetroidReduxRandomizer.Settings
                 throw new ValidationException($"Difficulty must be either 'Casual' or 'Speedrunner'.");
             }
         }
-        public static void ValidateItems(int missiles, int bombs, int supers)
+        public static void ValidateItems(Items items)
         {
-            if (missiles + bombs + supers > 330)
+            int mainitems = 2;
+
+            if (items.Bomb) mainitems++;
+            if (items.Spazer) mainitems++;
+            if (items.VariaSuit) mainitems++;
+            if (items.HiJumpBoots) mainitems++;
+            if (items.SpeedBooster) mainitems++;
+            if (items.WaveBeam) mainitems++;
+            if (items.GrappleBeam) mainitems++;
+            if (items.GravitySuit) mainitems++;
+            if (items.SpaceJump) mainitems++;
+            if (items.SpringBall) mainitems++;
+            if (items.PlasmaBeam) mainitems++;
+            if (items.IceBeam) mainitems++;
+            if (items.XRayScope) mainitems++;
+            if (items.ScrewAttack) mainitems++;
+
+            int totalitems = mainitems + items.Missiles / 5 + items.PowerBombs / 5 + items.PowerBombs / 5 + items.EnergyTanks + items.ReserveTanks;
+
+            if (totalitems > 100)
             {
-                throw new ValidationException($"Total of Missiles, Super Missiles, and Power Bombs should not exceed 330.");
+                throw new ValidationException($"Total item count cannot exceed 100. You currently have {totalitems}. To determine item count use this formula: 2 + 'true' items + Missiles/5 + PowerBombs/5 + SuperMissiles/5 + EnergyTanks + ReserveTanks.");
             }
 
-            if(!((missiles + bombs + supers) % 5 == 0))
+            if(!((items.Missiles + items.PowerBombs + items.SuperMissiles) % 5 == 0))
             {
                 throw new ValidationException($"Missiles, Super Missiles, and Power Bombs must be divisble by 5.");
             }

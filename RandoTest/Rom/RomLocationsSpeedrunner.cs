@@ -1272,8 +1272,10 @@ namespace SuperMetroidRandomizer.Rom
                                        CanAccessOuterMaridia(have)
                                        && (have.Contains(ItemType.GravitySuit)
                                        || (have.Contains(ItemType.VariaSuit)
-                                       && EnergyReserveCount(have) >= 3
-                                       && have.Contains(ItemType.SpaceJump))),
+                                            && EnergyReserveCount(have) >= 3
+                                            && have.Contains(ItemType.SpaceJump))
+                                       || (EnergyReserveCount(have) >= 6
+                                            && have.Contains(ItemType.SpaceJump))),
                                },
                            new Location
                                {                            
@@ -1290,8 +1292,10 @@ namespace SuperMetroidRandomizer.Rom
                                        CanAccessOuterMaridia(have)
                                        && (have.Contains(ItemType.GravitySuit)
                                        || (have.Contains(ItemType.VariaSuit)
-                                       && EnergyReserveCount(have) >= 3
-                                       && have.Contains(ItemType.SpaceJump))),
+                                            && EnergyReserveCount(have) >= 3
+                                            && have.Contains(ItemType.SpaceJump))
+                                       || (EnergyReserveCount(have) >= 6
+                                            && have.Contains(ItemType.SpaceJump))),
                                },
                            new Location
                                {                           
@@ -1306,7 +1310,8 @@ namespace SuperMetroidRandomizer.Rom
                                        CanAccessOuterMaridia(have)
                                        && (have.Contains(ItemType.GravitySuit)
                                        || (have.Contains(ItemType.VariaSuit)
-                                       && EnergyReserveCount(have) >= 5)),
+                                       && EnergyReserveCount(have) >= 5)
+                                       || EnergyReserveCount(have) >= 10),
                                },
                            new Location
                                {                            
@@ -1319,7 +1324,10 @@ namespace SuperMetroidRandomizer.Rom
                                    CanAccess =
                                        have =>
                                        CanAccessOuterMaridia(have)
-                                       && have.Contains(ItemType.GravitySuit),
+                                       && (have.Contains(ItemType.GravitySuit)
+                                       || (have.Contains(ItemType.VariaSuit)
+                                       && EnergyReserveCount(have) >= 5)
+                                       || EnergyReserveCount(have) >= 10),
                                },
                            new Location
                                {                            
@@ -1361,7 +1369,10 @@ namespace SuperMetroidRandomizer.Rom
                                    CanAccess =
                                        have =>
                                        CanAccessOuterMaridia(have)
-                                       && have.Contains(ItemType.GravitySuit)
+                                       && (have.Contains(ItemType.GravitySuit)
+                                            || have.Contains(ItemType.SpaceJump)
+                                            || (have.Contains(ItemType.HiJumpBoots)
+                                                && have.Contains(ItemType.SpringBall)))
                                        && (have.Contains(ItemType.GrappleBeam)),
                                },
                            new Location
