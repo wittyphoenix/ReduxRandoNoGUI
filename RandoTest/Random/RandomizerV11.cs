@@ -277,9 +277,6 @@ namespace SuperMetroidRandomizer.Random
                         }
 
                     }
-
-                    }
-
                     haveItems.Remove(candidateItem);
                 }
 
