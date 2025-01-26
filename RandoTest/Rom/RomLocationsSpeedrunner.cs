@@ -350,7 +350,7 @@ namespace SuperMetroidRandomizer.Rom
                                    GravityOkay = false,    
                                    Region = Region.Brinstar,
                                    Name = "Missile (green Brinstar pipe)",
-                                   Address = 0x78676,
+                                   Address = 0x7E9F2,
                                    MapAddress = 0x17d40,
                                    CanAccess =
                                        have =>
