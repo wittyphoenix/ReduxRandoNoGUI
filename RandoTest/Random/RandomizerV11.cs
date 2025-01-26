@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Resources;
@@ -258,7 +259,25 @@ namespace SuperMetroidRandomizer.Random
 
                     if (newLocations.Count > currentLocations.Count)
                     {
-                        romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                        if (candidateItem == ItemType.MorphingBall)
+                        {
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                        }
+                        else if (candidateItem == ItemType.ScrewAttack || candidateItem == ItemType.GravitySuit || candidateItem == ItemType.SpaceJump)
+                        {
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                        }
+                        else
+                        {
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                        }
+
+                    }
+
                     }
 
                     haveItems.Remove(candidateItem);
