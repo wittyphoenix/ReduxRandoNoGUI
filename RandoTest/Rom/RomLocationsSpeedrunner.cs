@@ -1438,7 +1438,8 @@ namespace SuperMetroidRandomizer.Rom
 
         private bool CanDefeatBotwoon(List<ItemType> have)
         {
-            return CanAccessInnerMaridia(have);
+            return CanAccessInnerMaridia(have)
+                && have.Contains(ItemType.ChargeBeam);
         }
 
         private bool CanAccessInnerMaridia(List<ItemType> have)
