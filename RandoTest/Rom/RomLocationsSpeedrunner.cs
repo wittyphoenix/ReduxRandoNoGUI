@@ -1438,20 +1438,20 @@ namespace SuperMetroidRandomizer.Rom
 
         private bool CanDefeatBotwoon(List<ItemType> have)
         {
-            return CanAccessInnerMaridia(have)
-                && have.Contains(ItemType.ChargeBeam);
+            return (CanAccessInnerMaridia(have)
+                && have.Contains(ItemType.ChargeBeam));
         }
 
         private bool CanAccessInnerMaridia(List<ItemType> have)
         {
-            return CanAccessRedBrinstar(have)
-                && have.Contains(ItemType.PowerBomb);
+            return (CanAccessRedBrinstar(have)
+                && have.Contains(ItemType.PowerBomb));
         }
 
         private bool CanAccessOuterMaridia(List<ItemType> have)
         {
-            return CanAccessRedBrinstar(have)
-                && have.Contains(ItemType.PowerBomb);
+            return (CanAccessRedBrinstar(have)
+                && have.Contains(ItemType.PowerBomb));
         }
 
         private bool CanAccessLowerNorfair(List<ItemType> have)
@@ -1501,9 +1501,9 @@ namespace SuperMetroidRandomizer.Rom
         private bool CanAccessRedBrinstar(List<ItemType> have)
         {
             return have.Contains(ItemType.SuperMissile)
-                && ((CanDestroyBombWalls(have) || have.Contains(ItemType.SpeedBooster))
+                && (((CanDestroyBombWalls(have) || have.Contains(ItemType.SpeedBooster))
                         && have.Contains(ItemType.MorphingBall))
-                    || (CanUsePowerBombs(have));
+                    || CanUsePowerBombs(have));
         }
 
         private bool CanPassBombPassages(List<ItemType> have)
