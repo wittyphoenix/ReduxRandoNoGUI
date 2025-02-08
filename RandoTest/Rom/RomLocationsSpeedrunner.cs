@@ -19,7 +19,7 @@ namespace SuperMetroidRandomizer.Rom
                            new Location
                                {
                                    NoHidden = false,
-                                   GravityOkay = false,  
+                                   GravityOkay = false,
                                    Region = Region.Crateria,
                                    Name = "Power Bomb (Crateria surface)",
                                    Address = 0x781CC,
