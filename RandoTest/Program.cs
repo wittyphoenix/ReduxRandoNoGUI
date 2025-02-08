@@ -38,14 +38,14 @@ namespace SuperMetroidRandomizer
                 Validation.ValidateSeed(Settings.seed);
                 Validation.ValidateFileExists(Settings.InputFile);
                 Validation.ValidateDifficulty(Settings.Difficulty);
-                Validation.ValidateItems(Settings.Items.Missiles, Settings.Items.SuperMissiles,Settings.Items.PowerBombs);
+                Validation.ValidateItems(Settings.Items);
                 Validation.ValidatePositive(Settings.Items.Missiles);
                 Validation.ValidatePositive(Settings.Items.SuperMissiles);
                 Validation.ValidatePositive(Settings.Items.PowerBombs);
                 Validation.ValidatePositive(Settings.Items.EnergyTanks);
                 Validation.ValidatePositive(Settings.Items.ReserveTanks);
-                Validation.ValidateEnergy(Settings.Items.EnergyTanks);
-                Validation.ValidateReserve(Settings.Items.ReserveTanks);
+               //Validation.ValidateEnergy(Settings.Items.EnergyTanks);
+                //Validation.ValidateReserve(Settings.Items.ReserveTanks);
                 Validation.ValidateMinimum(Settings.Items.SuperMissiles);
                 Validation.ValidateMinimum(Settings.Items.PowerBombs);
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Resources;
@@ -167,6 +168,13 @@ namespace SuperMetroidRandomizer.Random
                 rom.Seek(0x5e651, SeekOrigin.Begin);
                 rom.Write(useditemsarray, 0, 1);
 
+                
+                if(settings.Difficulty == "Casual")
+                {
+                    rom.Seek(0x001E21, SeekOrigin.Begin);
+                    rom.Write(StringToByteArray("\x00\x04"), 0, 2);
+                }
+
                 int cnt = 0;
                 foreach (var dupe in FirstDupe)
                 {
@@ -251,9 +259,24 @@ namespace SuperMetroidRandomizer.Random
 
                     if (newLocations.Count > currentLocations.Count)
                     {
-                        romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
-                    }
+                        if (candidateItem == ItemType.MorphingBall)
+                        {
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                        }
+                        else if (candidateItem == ItemType.ScrewAttack || candidateItem == ItemType.GravitySuit || candidateItem == ItemType.SpaceJump)
+                        {
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                        }
+                        else
+                        {
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                        }
 
+                    }
                     haveItems.Remove(candidateItem);
                 }
 

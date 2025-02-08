@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="in\**" />
+    <Compile Remove="Out\**" />
+    <Content Remove="in\**" />
+    <Content Remove="Out\**" />
+    <EmbeddedResource Remove="in\**" />
+    <EmbeddedResource Remove="Out\**" />
+    <None Remove="in\**" />
+    <None Remove="Out\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Dedux Rando Compatible.sfc" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
