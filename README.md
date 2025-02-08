@@ -1,4 +1,4 @@
-This is a headless randomizer for Super Metroid Redux I built for being run locally on a rasberry pi. There is no OS specific code, so it should compile fine into OS.
+This is a headless randomizer for Super Metroid Redux I built for being run locally on a rasberry pi. There is no OS specific code, so it should compile fine into any OS.
 
 How to use:
 
