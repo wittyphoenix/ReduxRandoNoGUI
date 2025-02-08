@@ -213,7 +213,7 @@ namespace SuperMetroidRandomizer.Rom
                                        have =>
                                        ((CanDestroyBombWalls(have) || have.Contains(ItemType.SpeedBooster))
                                            && CanOpenMissileDoors(have))
-                                       || CanUsePowerBombs(have),
+                                       || (CanUsePowerBombs(have) && CanOpenMissileDoors(have)),
                                },
                            new Location
                                {            
