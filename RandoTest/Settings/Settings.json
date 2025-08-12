@@ -25,5 +25,12 @@
         "IceBeam": true,
         "XRayScope": true,
         "ScrewAttack": true
+    },
+    "RandomRequiredBosses": true,
+    "Bosses": {
+        "Kraid": true,
+        "Phantoon": true,
+        "Draygon": true,
+        "Ridley":  true
     }
 }
