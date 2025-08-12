@@ -27,7 +27,7 @@
         "ScrewAttack": true
     },
     "RandomRequiredBosses": true,
-    "Bosses": {
+    "IncludedBosses": {
         "Kraid": true,
         "Phantoon": true,
         "Draygon": true,
