@@ -158,6 +158,137 @@ namespace SuperMetroidRandomizer.Random
                     }
                 }
 
+                //randomize the number of bosses to complete, and which bosses they are
+                if (settings.RandomRequiredBosses == true)
+                {
+                    var bossList = new List<string> { "\x06\x00", "\x07\x00", "\x08\x00", "\x09\x00" };
+                    var bossFlagList = new List<string> { "\x58\x00", "\x50\x00", "\x60\x00", "\x48\x00" };
+
+                    int bosscount = random.Next(4);
+
+                    if (bosscount != 3)
+                    {
+                        rom.Seek(0x0799DC, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray("\x00\xFE"), 0, 2);
+                    }
+
+                    if (bosscount == 2) //3 bosses are grey
+                    {
+                        int remove = random.Next(4);
+                        bossList.RemoveAt(remove);
+                        string Flag1 = bossFlagList[remove];
+                        bossFlagList.RemoveAt(remove);
+
+                        //set flag to validate
+                        rom.Seek(0x07FF1C, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag1), 0, 2);
+
+                        rom.Seek(0x07FF25, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag1), 0, 2);
+
+                        rom.Seek(0x07FF2E, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag1), 0, 2);
+
+                        rom.Seek(0x07FF37, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag1), 0, 2);
+
+                        //set grey statues based on bossList
+                        rom.Seek(0x07FE01, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[0]), 0, 2);
+
+                        rom.Seek(0x07FE08, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[0]), 0, 2);
+
+                        rom.Seek(0x07FE0F, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[1]), 0, 2);
+
+                        rom.Seek(0x07FE16, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[2]), 0, 2);
+                    }
+                    else if (bosscount == 1) //2 bosses are grey
+                    {
+                        int remove = random.Next(4);
+                        bossList.RemoveAt(remove);
+                        string Flag1 = bossFlagList[remove];
+                        bossFlagList.RemoveAt(remove);
+
+                        remove = random.Next(3);
+                        bossList.RemoveAt(remove);
+                        string Flag2 = bossFlagList[remove];
+                        bossFlagList.RemoveAt(remove);
+
+                        //set flag to validate
+                        rom.Seek(0x07FF1C, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag1), 0, 2);
+
+                        rom.Seek(0x07FF25, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag1), 0, 2);
+
+                        rom.Seek(0x07FF2E, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag2), 0, 2);
+
+                        rom.Seek(0x07FF37, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag2), 0, 2);
+
+                        //set grey statues based on bossList
+                        rom.Seek(0x07FE01, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[0]), 0, 2);
+
+                        rom.Seek(0x07FE08, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[0]), 0, 2);
+
+                        rom.Seek(0x07FE0F, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[0]), 0, 2);
+
+                        rom.Seek(0x07FE16, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[1]), 0, 2);
+                    }
+                    else if (bosscount == 0) //1 boss is grey
+                    {
+                        int remove = random.Next(4);
+                        bossList.RemoveAt(remove);
+                        string Flag1 = bossFlagList[remove];
+                        bossFlagList.RemoveAt(remove);
+
+                        remove = random.Next(3);
+                        bossList.RemoveAt(remove);
+                        string Flag2 = bossFlagList[remove];
+                        bossFlagList.RemoveAt(remove);
+
+                        remove = random.Next(2);
+                        bossList.RemoveAt(remove);
+                        string Flag3 = bossFlagList[remove];
+                        bossFlagList.RemoveAt(remove);
+
+                        //set flag to validate
+                        rom.Seek(0x07FF1C, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag1), 0, 2);
+
+                        rom.Seek(0x07FF25, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag1), 0, 2);
+
+                        rom.Seek(0x07FF2E, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag2), 0, 2);
+
+                        rom.Seek(0x07FF37, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(Flag3), 0, 2);
+
+
+                        //set grey statues based on bossList
+                        rom.Seek(0x07FE01, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[0]), 0, 2);
+
+                        rom.Seek(0x07FE08, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[0]), 0, 2);
+
+                        rom.Seek(0x07FE0F, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[0]), 0, 2);
+
+                        rom.Seek(0x07FE16, SeekOrigin.Begin);
+                        rom.Write(StringToByteArray(bossList[0]), 0, 2);
+                    }
+                    
+                }
                 //remove extra charge beams from the item count
                 useditems = useditems - (chargeitems - 1);
 

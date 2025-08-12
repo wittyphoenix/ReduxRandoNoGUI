@@ -19,15 +19,14 @@
 
   <ItemGroup>
     <None Remove="Dedux Rando Compatible.sfc" />
-    <None Remove="InputRom\Dedux Rando Compatible.sfc" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="InputRom\Dedux Rando Compatible.sfc" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="InputRom\" />
   </ItemGroup>
 
 </Project>

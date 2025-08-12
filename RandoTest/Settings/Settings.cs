@@ -33,5 +33,6 @@
         public string Difficulty { get; set; }
         public bool HiddenItems { get; set; }
         public Items Items { get; set; }
+        public bool RandomRequiredBosses { get; set; }
     }
 }
