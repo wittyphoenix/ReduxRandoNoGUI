@@ -299,7 +299,7 @@ namespace SuperMetroidRandomizer.Random
                 rom.Seek(0x5e651, SeekOrigin.Begin);
                 rom.Write(useditemsarray, 0, 1);
 
-                
+                //set escape timer to 4 min for casual difficulty. 3 min by default
                 if(settings.Difficulty == "Casual")
                 {
                     rom.Seek(0x001E21, SeekOrigin.Begin);
