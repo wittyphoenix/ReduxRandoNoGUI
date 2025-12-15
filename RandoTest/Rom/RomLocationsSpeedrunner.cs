@@ -364,7 +364,7 @@ namespace SuperMetroidRandomizer.Rom
                                    GravityOkay = false,              
                                    Region = Region.Brinstar,
                                    Name = "Morphing Ball",         
-                                   Address = 0x786DE,
+                                   Address = 0x78746,
                                    MapAddress = 0x17d48,
                                    CanAccess = 
                                        have => 
