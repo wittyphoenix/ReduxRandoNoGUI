@@ -396,6 +396,7 @@ namespace SuperMetroidRandomizer.Random
                             romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
                             romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
                             romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
                         }
                         else if (candidateItem == ItemType.ScrewAttack || candidateItem == ItemType.GravitySuit || candidateItem == ItemType.SpaceJump)
                         {
@@ -403,6 +404,7 @@ namespace SuperMetroidRandomizer.Random
                         }
                         else
                         {
+                            romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
                             romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
                             romLocations.TryInsertCandidateItem(currentLocations, candidateItemList, candidateItem);
                         }
