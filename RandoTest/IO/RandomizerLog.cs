@@ -58,8 +58,11 @@ namespace SuperMetroidRandomizer.IO
             writer.AppendLine("--------------------");
             foreach (var boss in requiredBosses)
             {
-                writer.AppendLine(string.Format("{0}{1}", boss));
+                writer.AppendLine(string.Format("{0}", boss));
             }
+            writer.AppendLine();
+            writer.AppendLine();
+            writer.AppendLine();
             writer.AppendLine("Generated Item Order");
             writer.AppendLine("--------------------");
             foreach (var location in orderedItems)
