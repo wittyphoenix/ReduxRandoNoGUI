@@ -189,6 +189,7 @@ namespace SuperMetroidRandomizer.Random
                         string Flag1 = bossFlagList[remove];
                         log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         //set flag to validate
                         rom.Seek(0x07FF1C, SeekOrigin.Begin);
@@ -223,12 +224,14 @@ namespace SuperMetroidRandomizer.Random
                         string Flag1 = bossFlagList[remove];
                         log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         remove = random.Next(3);
                         bossList.RemoveAt(remove);
                         string Flag2 = bossFlagList[remove];
                         log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         //set flag to validate
                         rom.Seek(0x07FF1C, SeekOrigin.Begin);
@@ -263,18 +266,21 @@ namespace SuperMetroidRandomizer.Random
                         string Flag1 = bossFlagList[remove];
                         log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         remove = random.Next(3);
                         bossList.RemoveAt(remove);
                         string Flag2 = bossFlagList[remove];
                         log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         remove = random.Next(2);
                         bossList.RemoveAt(remove);
                         string Flag3 = bossFlagList[remove];
                         log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         //set flag to validate
                         rom.Seek(0x07FF1C, SeekOrigin.Begin);
