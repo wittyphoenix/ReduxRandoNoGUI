@@ -163,8 +163,18 @@ namespace SuperMetroidRandomizer.Random
                 {
                     var bossList = new List<string> { "\x06\x00", "\x07\x00", "\x08\x00", "\x09\x00" };
                     var bossFlagList = new List<string> { "\x58\x00", "\x50\x00", "\x60\x00", "\x48\x00" };
+                    var bossNameList = new List<string> { "Phantoon", "Ridley", "Draygon", "Kraid" };
 
                     int bosscount = random.Next(4);
+
+                    if (bosscount == 3)
+                    {
+                        log.AddRequiredBosses(bossNameList[0]);
+                        log.AddRequiredBosses(bossNameList[1]);
+                        log.AddRequiredBosses(bossNameList[2]);
+                        log.AddRequiredBosses(bossNameList[3]);
+                    }
+
 
                     if (bosscount != 3)
                     {
@@ -177,7 +187,9 @@ namespace SuperMetroidRandomizer.Random
                         int remove = random.Next(4);
                         bossList.RemoveAt(remove);
                         string Flag1 = bossFlagList[remove];
+                        log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         //set flag to validate
                         rom.Seek(0x07FF1C, SeekOrigin.Begin);
@@ -210,12 +222,16 @@ namespace SuperMetroidRandomizer.Random
                         int remove = random.Next(4);
                         bossList.RemoveAt(remove);
                         string Flag1 = bossFlagList[remove];
+                        log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         remove = random.Next(3);
                         bossList.RemoveAt(remove);
                         string Flag2 = bossFlagList[remove];
+                        log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         //set flag to validate
                         rom.Seek(0x07FF1C, SeekOrigin.Begin);
@@ -248,17 +264,23 @@ namespace SuperMetroidRandomizer.Random
                         int remove = random.Next(4);
                         bossList.RemoveAt(remove);
                         string Flag1 = bossFlagList[remove];
+                        log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         remove = random.Next(3);
                         bossList.RemoveAt(remove);
                         string Flag2 = bossFlagList[remove];
+                        log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         remove = random.Next(2);
                         bossList.RemoveAt(remove);
                         string Flag3 = bossFlagList[remove];
+                        log.AddRequiredBosses(bossNameList[remove]);
                         bossFlagList.RemoveAt(remove);
+                        bossNameList.RemoveAt(remove);
 
                         //set flag to validate
                         rom.Seek(0x07FF1C, SeekOrigin.Begin);

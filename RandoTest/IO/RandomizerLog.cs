@@ -11,12 +11,14 @@ namespace SuperMetroidRandomizer.IO
     {
         private readonly List<Location> generatedItems;
         private readonly List<Location> orderedItems;
+        private readonly List<String> requiredBosses;
         private readonly string seed;
 
         public RandomizerLog(string seed)
         {
             generatedItems = new List<Location>();
             orderedItems = new List<Location>();
+            requiredBosses = new List<string>();
             this.seed = seed;
         }
 
@@ -28,6 +30,11 @@ namespace SuperMetroidRandomizer.IO
         public void AddGeneratedItems(List<Location> locations)
         {
             generatedItems.AddRange(locations);        
+        }
+
+        public void AddRequiredBosses(String boss)
+        {
+            requiredBosses.Add(boss);
         }
 
         public void WriteLog(string filename)
@@ -46,6 +53,15 @@ namespace SuperMetroidRandomizer.IO
             writer.AppendLine("----------------------------");
             writer.AppendLine(string.Format("Creation Date: {0}", DateTime.Now));
             writer.AppendLine(string.Format("Seed: {0}", seed));
+            writer.AppendLine();
+            writer.AppendLine("Required Bosses");
+            writer.AppendLine("--------------------");
+            foreach (var boss in requiredBosses)
+            {
+                writer.AppendLine(string.Format("{0}", boss));
+            }
+            writer.AppendLine();
+            writer.AppendLine();
             writer.AppendLine();
             writer.AppendLine("Generated Item Order");
             writer.AppendLine("--------------------");
